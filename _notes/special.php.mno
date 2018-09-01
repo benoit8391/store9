@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rsSpecial" value="name:sort;datatype:int,name:sid;datatype:int,name:title;datatype:string,name:story;datatype:string,name:sid;datatype:int,name:cid;datatype:int,name:name;datatype:string,name:color;datatype:string,name:price;datatype:int,name:dsort;datatype:int,name:descript;datatype:string,name:img;datatype:string" />
+</info>
