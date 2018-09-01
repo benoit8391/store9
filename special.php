@@ -51,7 +51,7 @@ $totalRows_rsSpecial = mysql_num_rows($rsSpecial);
   <div class="newcloth">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="110"><img src="imgshirt/<?php echo $row_rsSpecial['img']; ?>s.jpg" width="109" height="91" class="type2" /></td>
+        <td width="110"><img src="imgshirt/<?php echo $row_rsSpecial['img']; ?>s.jpg" width="109" height="91" class="type2" title="<?php echo $row_rsSpecial['name']; ?>" alt="<?php echo $row_rsSpecial['name']; ?>" /></td>
         <td><span class="style5"><?php echo $row_rsSpecial['title']; ?></span><br />
           <div class="titlebar"><?php echo $row_rsSpecial['name']; ?><span class="style6"> NT<?php echo $row_rsSpecial['price']; ?></span></div>
           <?php echo $row_rsSpecial['story']; ?></td>
