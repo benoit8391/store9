@@ -56,7 +56,7 @@ $totalRows_rsHot = mysql_num_rows($rsHot);
   <div id="header"> <img src="images/header.gif" width="834" height="60" />
     <div id="topmenu"> <a href=".">回首頁</a>　 <a href="#">付款與配送方式</a>　 <a href="#">Ｔ恤質料與尺寸</a>　 <a href="#">我的購物車</a></div>
     <form action="catalog.php" method="get" name="search" target="tsFrame" id="search">
-      <input name="key" type="text" class="type1" id="key" required size="40" maxlength="40" />
+      <input name="key" type="text" required="required" class="type1" id="key" size="40" maxlength="40" />
       <input name="button" type="submit" class="type1" id="button" value="搜尋" />
     </form>
     <div class="clearboth"></div>
@@ -74,8 +74,8 @@ $totalRows_rsHot = mysql_num_rows($rsHot);
     <div class="leftboard">
       <div align="center"> <img src="images/board_top2.gif" width="166" height="63" /> 
         <?php do { ?>
-          <a href="product.php?sid=<?php echo $row_rsHot['sid']; ?>" target="tsFrame"><img src="imgshirt/<?php echo $row_rsHot['img']; ?>s.jpg" title="<?php echo $row_rsHot['name']; ?>" /></a>
-        <?php } while ($row_rsHot = mysql_fetch_assoc($rsHot)); ?>
+          <img src="imgshirt/<?php echo $row_rsHot['img']; ?>s.jpg" title="<?php echo $row_rsHot['name']; ?>" />
+          <?php } while ($row_rsHot = mysql_fetch_assoc($rsHot)); ?>
         <div class="bottom"><img src="images/board_bottom.gif" width="166" height="26" /></div>
       </div>
     </div>

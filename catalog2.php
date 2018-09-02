@@ -40,12 +40,16 @@ if (isset($_GET['pageNum_rsShirt'])) {
 }
 $startRow_rsShirt = $pageNum_rsShirt * $maxRows_rsShirt;
 
-$colname_rsShirt = "0";
+$colname_rsShirt = "-1";
 if (isset($_GET['cid'])) {
   $colname_rsShirt = $_GET['cid'];
 }
+$colkey_rsShirt = "''";
+if (isset($_GET['key'])) {
+  $colkey_rsShirt = $_GET['key'];
+}
 mysql_select_db($database_cnStore, $cnStore);
-$query_rsShirt = sprintf("SELECT * FROM shirt WHERE cid = %s OR 0 = %s ORDER BY dsort DESC, sid DESC", GetSQLValueString($colname_rsShirt, "int"),GetSQLValueString($colname_rsShirt, "int"));
+$query_rsShirt = sprintf("SELECT * FROM shirt WHERE cid = %s OR 0 = %s OR name LIKE %s OR descript LIKE %s ORDER BY dsort DESC, sid DESC", GetSQLValueString($colname_rsShirt, "int"),GetSQLValueString($colname_rsShirt, "int"),GetSQLValueString("%" . $colkey_rsShirt . "%", "text"),GetSQLValueString("%" . $colkey_rsShirt . "%", "text"));
 $query_limit_rsShirt = sprintf("%s LIMIT %d, %d", $query_rsShirt, $startRow_rsShirt, $maxRows_rsShirt);
 $rsShirt = mysql_query($query_limit_rsShirt, $cnStore) or die(mysql_error());
 $row_rsShirt = mysql_fetch_assoc($rsShirt);
@@ -99,8 +103,8 @@ $queryString_rsShirt = sprintf("&totalRows_rsShirt=%d%s", $totalRows_rsShirt, $q
         <div class="style3"> &nbsp;&nbsp;&nbsp;分類：<?php echo $row_rsClass['cname']; ?></div>
         <?php } // Show if recordset not empty ?>
       <?php if ($totalRows_rsClass == 0) { // Show if recordset empty ?>
-  <div class="style4"> &nbsp;&nbsp;&nbsp;搜尋：簡單 </div>
-  <?php } // Show if recordset empty ?>    </td>
+        <div class="style4"> &nbsp;&nbsp;&nbsp;搜尋：<?php echo $_GET['key']; ?></div>
+      <?php } // Show if recordset empty ?>    </td>
     <td><div align="right" class="pagelink"> <a href="<?php printf("%s?pageNum_rsShirt=%d%s", $currentPage, 0, $queryString_rsShirt); ?>">第一頁</a>｜<a href="<?php printf("%s?pageNum_rsShirt=%d%s", $currentPage, max(0, $pageNum_rsShirt - 1), $queryString_rsShirt); ?>">上一頁</a>｜<a href="<?php printf("%s?pageNum_rsShirt=%d%s", $currentPage, min($totalPages_rsShirt, $pageNum_rsShirt + 1), $queryString_rsShirt); ?>">下一頁</a>｜<a href="<?php printf("%s?pageNum_rsShirt=%d%s", $currentPage, $totalPages_rsShirt, $queryString_rsShirt); ?>">最後一頁</a>&nbsp;&nbsp;&nbsp;</div></td>
   </tr>
   <tr>
@@ -110,14 +114,14 @@ $queryString_rsShirt = sprintf("&totalRows_rsShirt=%d%s", $totalRows_rsShirt, $q
         <?php } // Show if recordset empty ?>    </tr>
   <tr>
     <td colspan="2"><?php do { ?>
-          <?php if ($totalRows_rsShirt > 0) { // Show if recordset not empty ?>
-            <div class="clothes"> <a href="product.php?sid=<?php echo $row_rsShirt['sid']; ?>" target="tsFrame"><img src="imgshirt/<?php echo $row_rsShirt['img']; ?>m.jpg" width="155" height="130" title="<?php echo $row_rsShirt['name']; ?>" alt="<?php echo $row_rsShirt['name']; ?>" /></a><br />
-              <span class="style2"><?php echo $row_rsShirt['name']; ?></span> (NT<?php echo $row_rsShirt['price']; ?>) </div>
-            <?php } // Show if recordset not empty ?>
-<?php } while ($row_rsShirt = mysql_fetch_assoc($rsShirt)); ?></td>
+      <?php if ($totalRows_rsShirt > 0) { // Show if recordset not empty ?>
+        <div class="clothes"> <a href="product.php?sid=<?php echo $row_rsShirt['sid']; ?>" target="tsFrame"><img src="imgshirt/<?php echo $row_rsShirt['img']; ?>m.jpg" width="155" height="130" title="<?php echo $row_rsShirt['name']; ?>" alt="<?php echo $row_rsShirt['name']; ?>" /></a><br />
+          <span class="style2"><?php echo $row_rsShirt['name']; ?></span> (NT<?php echo $row_rsShirt['price']; ?>) </div>
+        <?php } // Show if recordset not empty ?>
+      <?php } while ($row_rsShirt = mysql_fetch_assoc($rsShirt)); ?></td>
   </tr>
   <tr>
-    <td colspan="2"><div align="right" class="pagelink"> <a href="<?php printf("%s?pageNum_rsShirt=%d%s", $currentPage, 0, $queryString_rsShirt); ?>">第一頁</a>｜<a href="<?php printf("%s?pageNum_rsShirt=%d%s", $currentPage, max(0, $pageNum_rsShirt - 1), $queryString_rsShirt); ?>">上一頁</a>｜<a href="<?php printf("%s?pageNum_rsShirt=%d%s", $currentPage, min($totalPages_rsShirt, $pageNum_rsShirt + 1), $queryString_rsShirt); ?>">下一頁</a>｜<a href="<?php printf("%s?pageNum_rsShirt=%d%s", $currentPage, $totalPages_rsShirt, $queryString_rsShirt); ?>">最後一頁</a>&nbsp;&nbsp;&nbsp;</div></td>
+    <td colspan="2"><div align="right" class="pagelink">  <a href="<?php printf("%s?pageNum_rsShirt=%d%s", $currentPage, 0, $queryString_rsShirt); ?>">第一頁</a>｜<a href="<?php printf("%s?pageNum_rsShirt=%d%s", $currentPage, max(0, $pageNum_rsShirt - 1), $queryString_rsShirt); ?>">上一頁</a>｜<a href="<?php printf("%s?pageNum_rsShirt=%d%s", $currentPage, min($totalPages_rsShirt, $pageNum_rsShirt + 1), $queryString_rsShirt); ?>">下一頁</a>｜<a href="<?php printf("%s?pageNum_rsShirt=%d%s", $currentPage, $totalPages_rsShirt, $queryString_rsShirt); ?>">最後一頁</a>&nbsp;&nbsp;&nbsp;</div></td>
   </tr>
 </table>
 </body>

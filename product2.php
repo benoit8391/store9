@@ -62,16 +62,17 @@ $totalRows_rsProduct = mysql_num_rows($rsProduct);
             <tr>
               <td align="left" bgcolor="#FFFFFF">尺寸</td>
               <td align="left" bgcolor="#FFFFFF"><label>
-                  <select name="size" class="type1" id="size">
-                    <option selected="selected">S</option>
-                    <option>M</option>
+                  <select name="size" required class="type1" id="size">
+                    <option>S</option>
+                    <option selected>M</option>
                     <option>L</option>
                     <option>XL</option>
                   </select>
                 </label>
                 X
-                <input name="qty" type="text" class="type1" id="qty" value="1" size="2" maxlength="2" />
-                件 </td>
+                <input name="qty" type="text" required class="type1" id="qty" value="1" size="2" maxlength="2" />
+                件
+                <input name="sid" type="hidden" id="sid" value="<?php echo $_GET['sid']; ?>"></td>
             </tr>
             <tr>
               <td align="left" bgcolor="#FFFFFF">顏色</td>
@@ -91,8 +92,8 @@ $totalRows_rsProduct = mysql_num_rows($rsProduct);
             <tr>
               <td width="50%"><div align="right">
                   <input type="image" name="tobuy" id="tobuy" src="images/button_buy1.gif" alt="確定購買" />
-              </div></td>
-              <td><div align="right"><img src="images/button_back.gif" alt="回到上一頁" width="98" height="28" border="0" align="bottom" /></div></td>
+                </div></td>
+              <td><div align="right"><a href="javascript:;"><img src="images/button_back.gif" alt="回到上一頁" width="98" height="28" onClick="history.go(-1)" border="0" align="bottom" /></a></div></td>
             </tr>
           </table>
         </form>
