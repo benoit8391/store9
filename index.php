@@ -74,8 +74,8 @@ $totalRows_rsHot = mysql_num_rows($rsHot);
     <div class="leftboard">
       <div align="center"> <img src="images/board_top2.gif" width="166" height="63" /> 
         <?php do { ?>
-          <img src="imgshirt/<?php echo $row_rsHot['img']; ?>s.jpg" title="<?php echo $row_rsHot['name']; ?>" />
-          <?php } while ($row_rsHot = mysql_fetch_assoc($rsHot)); ?>
+          <a href="product.php?sid=<?php echo $row_rsHot['sid']; ?>" target="tsFrame"><img src="imgshirt/<?php echo $row_rsHot['img']; ?>s.jpg" title="<?php echo $row_rsHot['name']; ?>" /></a>
+        <?php } while ($row_rsHot = mysql_fetch_assoc($rsHot)); ?>
         <div class="bottom"><img src="images/board_bottom.gif" width="166" height="26" /></div>
       </div>
     </div>
