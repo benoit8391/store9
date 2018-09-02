@@ -70,7 +70,7 @@ $totalRows_rsProduct = mysql_num_rows($rsProduct);
                   </select>
                 </label>
                 X
-                <input name="qty" type="text" class="type1" id="qty" value="1" size="2" maxlength="2" />
+                <input name="qty" type="text" class="type1" id="qty" value="1" size="2" maxlength="2" required/>
                 件 </td>
             </tr>
             <tr>
