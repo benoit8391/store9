@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rsShirt" value="name:cartid;datatype:int,name:sid;datatype:int,name:size;datatype:string,name:qty;datatype:int,name:uname;datatype:string,name:email;datatype:string,name:addr;datatype:string,name:tel;datatype:string,name:ordtime;datatype:timestamp,name:ip;datatype:string,name:name;datatype:string,name:price;datatype:int,name:color;datatype:string" />
+</info>

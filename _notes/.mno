@@ -3,4 +3,9 @@
 	<infoitem key="MM_URL1" value="key" />
 	<infoitem key="MM_URL_Count" value="2" />
 	<infoitem key="MM_URL2" value="sid" />
+	<infoitem key="MM_Form1" value="qty" />
+	<infoitem key="MM_Form_Count" value="2" />
+	<infoitem key="MM_Form2" value="size" />
+	<infoitem key="MM_Server1" value="REMOTE_ADDR" />
+	<infoitem key="MM_Server_Count" value="1" />
 </info>

@@ -71,7 +71,8 @@ $totalRows_rsProduct = mysql_num_rows($rsProduct);
                 </label>
                 X
                 <input name="qty" type="text" class="type1" id="qty" value="1" size="2" maxlength="2" />
-                件 </td>
+                件
+                <input name="sid" type="hidden" id="sid" value="<?php echo $_GET['sid']; ?>"></td>
             </tr>
             <tr>
               <td align="left" bgcolor="#FFFFFF">顏色</td>
@@ -92,7 +93,7 @@ $totalRows_rsProduct = mysql_num_rows($rsProduct);
               <td width="50%"><div align="right">
                   <input type="image" name="tobuy" id="tobuy" src="images/button_buy1.gif" alt="確定購買" />
               </div></td>
-              <td><div align="right"><img src="images/button_back.gif" alt="回到上一頁" width="98" height="28" border="0" align="bottom" /></div></td>
+              <td><div align="right"><a href="javascript:;" onClick="history.go(-1)"><img src="images/button_back.gif" alt="回到上一頁" width="98" height="28" border="0" align="bottom" /></a></div></td>
             </tr>
           </table>
         </form>
